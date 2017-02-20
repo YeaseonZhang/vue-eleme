@@ -55,6 +55,11 @@ import router from 'vue-router';
 Vue.use(router);
 export default new Router({
   routes: [
+    // "/"根目录自动重定向到“/goods”
+    {
+      path: '/',
+      redirect: '/goods'
+    },
     {
       path: '/goods',
       name: 'Goods',
@@ -91,4 +96,48 @@ new Vue({
   template: '<App/>',
   components: { App }
 });
+```
+
+### 移动端访问开发项目
+
+将localhost,替换成`ifconfig/ipconfig`的本机IP,通过草料网将我们的链接生成二维码，微信扫码访问即可。
+
+### 移动端1px边框
+
+```
+// 定义一个代码块
+@mixin border-1px($color){
+    position: relative;
+    &:after {
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        border-top: 1px solid $color;
+        content: ' '
+    }
+}
+
+// 媒体查询
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5) {
+    .border-1px {
+        &::after {
+            -webkit-transform: scaleY(0.7);
+            transform: scaleY(0.7);
+        }
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {
+    .border-1px {
+        &::after {
+            -webkit-transform: scaleY(0.5);
+            transform: scaleY(0.5);
+        }
+    }
+}
+
+// 使用
+@include border-1px(rgba(7, 17, 27, 0.1));
 ```
