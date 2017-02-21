@@ -19,9 +19,28 @@
 </template>
 
 <script>
+  import axios from 'axios';
   import header from 'components/header/header';
 
+  const ERR_OK = 0;
+  
   export default {
+    data: () => {
+      return {
+        seller: {}
+      };
+    },
+
+    created () {
+      var self = this;
+      axios.get('/api/seller').then((res) => {
+        if (res.data.errno === ERR_OK) { // success
+          self.seller = res.data.data;
+          console.log(self.seller);
+        };
+      });
+    },
+
     components: {
       'v-header': header
     }

@@ -141,3 +141,32 @@ new Vue({
 // 使用
 @include border-1px(rgba(7, 17, 27, 0.1));
 ```
+
+### axios
+
+组件中使用axios过程中偶遇bug
+```
+// error, can't set data
+created: () => {
+    var self = this;
+    axios.get('/api/seller').then((res) => {
+        if (res.data.errno === ERR_OK) { // success
+            self.seller = res.data.data;
+            console.log(self.seller);
+        };
+    });
+}
+
+// correct
+created () {
+    var self = this;
+    axios.get('/api/seller').then((res) => {
+        if (res.data.errno === ERR_OK) { // success
+            self.seller = res.data.data;
+            console.log(self.seller);
+        };
+    });
+}
+
+
+```
