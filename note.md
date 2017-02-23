@@ -167,6 +167,33 @@ created () {
         };
     });
 }
+```
 
+### 组件
 
+#### 父子组件通信
+```
+<div class="parent">
+    <v-header :seller="seller"></header>
+    <!-- something -->
+</div>
+
+var parent = new Vue({
+    el: '.parent',
+    data: {
+        seller: '...'
+    }
+})
+
+<div class="child">
+    <p>{{ seller.title }}</p>
+</div>
+
+var child = new Vue({
+    el: '.child',
+    // props 属性用于接收来自父组件的数据
+    props: {
+        seller: Object
+    }
+})
 ```
