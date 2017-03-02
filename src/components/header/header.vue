@@ -16,9 +16,16 @@
                     <span class="icon" :class="classMap[seller.supports[0].type]"></span>
                     <span class="text">{{ seller.supports[0].description }}</span>
                 </div>
+                <div v-if="seller.supports" class="support-count">
+                    <span class="count">{{ seller.supports.length }} 个 </span>
+                    <i class="icon-keyboard_arrow_right"></i>
+                </div>
             </div>
         </div>
-        <div class="bulletin-wrapper"></div>
+        <div class="bulletin-wrapper">
+            <span class="bulletin-title"></span><span class="bulletin-text">{{ seller.bulletin }}</span>
+            <i class="icon-keyboard_arrow_right"></i>
+        </div>
     </div>
 </template>
 
@@ -40,8 +47,9 @@
 
     .header {
         color: #fff;
-        background: #000;
+        background: #999;
         .content-wrapper {
+            position: relative;
             padding: 24px 12px 18px 24px;
             font-size: 0px;
             .avatar {
@@ -104,9 +112,61 @@
                     }
                     .text {
                         line-height: 12px;
-                        font-size: 12px;
+                        font-size: 10px;
                     }
                 }
+            }
+            .support-count {
+                position: absolute;
+                right: 12px;
+                bottom: 14px;
+                padding: 0 8px;
+                height: 24px;
+                line-height: 24px;
+                border-radius: 14px;
+                background: rgba(0, 0, 0, 0.2);
+                text-align: center;
+                .count {
+                    font-size: 10px;
+                    vertical-align: top;
+                }
+                .icon-keyboard_arrow_right {
+                    margin-left: 2px;
+                    line-height: 24px;
+                    font-size: 10px;
+
+                }
+            }
+        }
+        .bulletin-wrapper {
+            position: relative;
+            height: 28px;
+            line-height: 28px;
+            padding: 0 22px 0 12px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            background: rgba(7, 17, 27, 0.2);
+            .bulletin-title {
+                display: inline-block;
+                vertical-align: top;
+                margin-top: 7px;
+                width: 22px;
+                height: 12px;
+                @include bg-image('bulletin');
+                background-size: 22px 12px;
+                background-repeat: no-repeat;
+            }
+            .bulletin-text {
+                vertical-align: top;
+                margin: 0 4px;
+                font-size: 10px;
+            }
+            .icon-keyboard_arrow_right {
+                position: absolute;
+                font-size: 10px;
+                right: 12px;
+                top: 8px;
             }
         }
     }
