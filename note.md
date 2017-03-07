@@ -26,10 +26,10 @@ Vue-cli脚手架工具的功能：
 ## 准备工作
 
 + 将svg矢量图标制作成字体文件
-    
+
     使用**icomoon**工具，生成一个包
 
-+ reset.css 
++ reset.css
     [Download](meyerweb.com/eric/tools/css/reset/)
 
 ## 项目实战
@@ -199,7 +199,7 @@ var child = new Vue({
 ```
 **注**：chrome最小`font-size`: 12px;
 
-#### CSS -- 超出显示区域部分文字隐藏 
+#### CSS -- 超出显示区域部分文字隐藏
 ```
 {
     white-space: nowrap;
@@ -221,9 +221,56 @@ pre-wrap: 连续的空白符会被保留。在遇到换行符或者`<br>`元素�
 
 pre-line: 连续的空白符会被合并。在遇到换行符或者`<br>`元素，或者需要为了填充line盒子时会换行。
 
-        换行符	空格和制表符	文字转行
-normal	    合并	合并	转行
-nowrap	    合并	合并	不转行
-pre	        保留	保留	不转行
-pre-wrap	保留	保留	转行
-pre-line	保留	合并	转行
+column0 | column1 | column2 | column3
+------- | ------- | ------- | -------
+ | 换行符 | 空格和制表符 | 文字转行
+normal   | 合并 | 合并 | 转行
+nowrap   | 合并 | 合并 | 不转行
+pre      | 保留 | 保留 | 不转行
+pre-wrap | 保留 | 保留 | 转行
+pre-line | 保留 | 合并 | 转行
+
+#### CSS Sticky footer布局
+
++ HTML
+```
+<div class="detail-wrapper clearfix">
+  <div class="detail-main">
+    // content
+  </div>
+</div>
+<div class="detail-close">
+  // close btn
+  <i class="icon-close"></i>
+</div>
+```
++ SASS
+```
+.clearfix {
+  display: inline-block;
+  &:after {
+    display: block;
+    content: ".";
+    height: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+
+.detail-wrapper {
+  min-height: 100%;
+  .detail-main {
+    padding-bottom: 64px;
+  }
+}
+
+.detail-close {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  margin: -64px auto 0 auto;
+  clear: both;
+  font-size: 32px;
+}
+```
