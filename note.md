@@ -274,3 +274,26 @@ pre-line | 保留 | 合并 | 转行
   font-size: 32px;
 }
 ```
+#### 组件的使用
+
+先引入，后注册
+```
+import star from 'components/star/star';
+
+export default {
+  data () {
+    ...
+  },
+
+  methods: {
+    ...
+  },
+
+  created () {
+    ...
+  }
+  components: {
+    star
+  }
+};
+```
