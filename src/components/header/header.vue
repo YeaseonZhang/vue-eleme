@@ -195,7 +195,6 @@
                     margin-left: 2px;
                     line-height: 24px;
                     font-size: 10px;
-
                 }
             }
         }
