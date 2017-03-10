@@ -297,3 +297,34 @@ export default {
   }
 };
 ```
+
+#### 过渡
+[过渡官方文档](https://cn.vuejs.org/v2/guide/transitions.html)
+
++ HTML
+```
+<transition name="fade">
+  <div v-show="detailShow" class="detail">
+      // some
+  </div>
+</transition>
+```
+使用`<transition name="fade">`标签包裹使用过渡效果的组件，`name`是使用的过渡效果
+
++ CSS
+```
+.detail {
+    transition: all .5s;
+    background: rgba(7, 17, 27, 0.8);
+    &.fade-transition {
+      opacity: 1;
+    }
+    &.fade-enter, &.fade-leave {
+      opacity: 0;
+      background: rgba(7, 17, 27, 0);
+    }
+}
+```
+在组件内部使用`transition`属性。
+
+`backdrop-filter: blur(10px);`模糊效果，仅iOS Safari支持。
