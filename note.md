@@ -328,3 +328,30 @@ export default {
 在组件内部使用`transition`属性。
 
 `backdrop-filter: blur(10px);`模糊效果，仅iOS Safari支持。
+
+#### Vue ｀ref｀属性
+
+Vue通过`ref`属性引用元素或者组件的DOM节点。
+
+```
+<div ref="divBox">
+
+// use
+vm.refs.divBox
+```
+**注**：ref属性统一使用驼峰命名法，不支持短横线`div-box`。
+
+#### `$event`
+
+`$event`可以获取事件属性
+
+```
+<div @click="foo(params, $event)">
+
+methods: {
+  foo (params, event) {
+    //...
+  }
+}
+
+```
