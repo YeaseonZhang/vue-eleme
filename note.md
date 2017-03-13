@@ -355,3 +355,9 @@ methods: {
 }
 
 ```
+#### `border-radius`小技巧
+
+设置为50%为圆形
+```
+border-radius: 50%
+```
