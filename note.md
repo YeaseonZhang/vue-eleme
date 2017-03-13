@@ -361,3 +361,17 @@ methods: {
 ```
 border-radius: 50%
 ```
+#### Props
+
+`Props`传入属性值类型为`Array`时，`default`为一个函数，类似`data`。
+
+```
+props: {
+  arr: {
+    type: Array,
+    default () {
+      return [];
+    }
+  }
+}
+```

@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <router-view></router-view>
+    <router-view :seller="seller"></router-view>
   </div>
 </template>
 
@@ -23,7 +23,7 @@
   import header from 'components/header/header';
 
   const ERR_OK = 0;
-  
+
   export default {
     data: () => {
       return {
