@@ -62,7 +62,7 @@
         for (let i = 0; i < this.listHeight.length; i++) {
           let height1 = this.listHeight[i];
           let height2 = this.listHeight[i + 1];
-          console.log(height1);
+
           if (!height2 || (this.scrollY >= height1 && this.scrollY < height2)) {
             return i;
           }
