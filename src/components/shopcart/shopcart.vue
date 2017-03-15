@@ -24,12 +24,7 @@
       selectFoods: {
         type: Array,
         default () {
-          return [
-            {
-              price: 2,
-              count: 4
-            }
-          ];
+          return [];
         }
       },
       deliveryPrice: {
