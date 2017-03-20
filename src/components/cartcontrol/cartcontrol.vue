@@ -10,6 +10,7 @@
 
 <script>
   import Vue from 'vue';
+  import eventHub from '../../eventHub';
 
   export default {
 
@@ -31,6 +32,7 @@
         } else {
           this.food.count++;
         }
+        eventHub.$emit('cart-add', event.target);
       },
       decreaseCart (event) {
         if (!event._constructed) {
@@ -58,7 +60,6 @@
       &.move-transition {
         opacity: 1;
         transform: translate3d(0, 0, 0);
-        transform: rotate(0);
       }
       &.move-enter, &.move-leave {
         opacity: 0;

@@ -375,3 +375,9 @@ props: {
   }
 }
 ```
+
+#### 使用`$on`、`$emit`进行兄弟组件间通信
+
+#### `element.getBoundingClientRect`
+
+Element.getBoundingClientRect()方法返回元素的大小及其相对于视口的位置。

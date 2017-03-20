@@ -134,6 +134,9 @@
           height += item.clientHeight;
           this.listHeight.push(height);
         }
+      },
+      _drop (target) {
+
       }
     }
   };
