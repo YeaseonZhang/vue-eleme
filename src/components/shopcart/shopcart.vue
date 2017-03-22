@@ -1,6 +1,6 @@
 <template>
   <div class="shopcart">
-    <div class="content">
+    <div class="content" @click="toggleList">
       <div class="content-left">
         <div class="logo-wrapper">
           <div class="logo" :class="{'highlight': totalCount > 0}">
@@ -26,11 +26,33 @@
         </div>
       </transition-group>
     </div>
+    <transition name="fold">
+      <div class="shopcart-list" v-show="listShow">
+        <div class="list-header">
+          <h1 class="title">购物车</h1>
+          <span class="empty">清空</span>
+        </div>
+        <div class="list-content">
+          <ul>
+            <li class="food" v-for="food in selectFoods">
+              <span class="name">{{ food.name }}</span>
+              <div class="price">
+                <span>￥{{ food.price * food.count }}</span>
+              </div>
+              <dic class="cartcontrol-wrapper">
+                <cartcontrol :food="food"></cartcontrol>
+              </dic>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
   import eventHub from '../../eventHub';
+  import cartcontrol from 'components/cartcontrol/cartcontrol';
 
   export default {
     props: {
@@ -68,7 +90,8 @@
             show: false
           }
         ],
-        dropBall: []
+        dropBalls: [],
+        fold: true
       };
     },
     created () {
@@ -110,9 +133,23 @@
         } else {
           return 'enough';
         }
+      },
+      listShow () {
+        if (!this.totalCount) {
+          this.fold = true;
+          return false;
+        }
+        let show = !this.fold;
+        return show;
       }
     },
     methods: {
+      toggleList () {
+        if (!this.totalCount) {
+          return;
+        }
+        this.fold = !this.fold;
+      },
       drop (el) { // push one ball to dropBall
         for (let i = 0; i < this.balls.length; i++) {
           let ball = this.balls[i];
@@ -161,6 +198,9 @@
           el.style.display = 'none';
         }
       }
+    },
+    components: {
+      cartcontrol
     }
   };
 
@@ -285,6 +325,20 @@
             transition: all .4s;
           }
         }
+      }
+    }
+    .shopcart-list {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      &.fold-transition {
+        transition: all 0.5s;
+        transform: translate3d(0, -500px, 0);
+      }
+      &.fold-enter, &.fold-leave {
+        transform: translate3d(0, 0, 0);
       }
     }
   }
