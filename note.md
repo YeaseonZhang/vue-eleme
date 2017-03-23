@@ -337,7 +337,7 @@ Vue通过`ref`属性引用元素或者组件的DOM节点。
 <div ref="divBox">
 
 // use
-vm.refs.divBox
+vm.$refs.divBox
 ```
 **注**：ref属性统一使用驼峰命名法，不支持短横线`div-box`。
 

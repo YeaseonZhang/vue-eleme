@@ -333,9 +333,9 @@
       left: 0;
       z-index: -1;
       width: 100%;
-      &.fold-transition {
-        transition: all 0.5s;
-        transform: translate3d(0, -500px, 0);
+      &.fold-enter-active {
+        transition: all 2s;
+        transform: translate3d(0, -100%, 0);
       }
       &.fold-enter, &.fold-leave {
         transform: translate3d(0, 0, 0);
