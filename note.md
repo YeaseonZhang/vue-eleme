@@ -381,3 +381,33 @@ props: {
 #### `element.getBoundingClientRect`
 
 Element.getBoundingClientRect()方法返回元素的大小及其相对于视口的位置。
+
+#### image 撑开高度
+```
+.image-header {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+```
+`height: 0; padding-top: 100%;`是重点，通过父元素的`hight`设置为0，`padding=top/padding-bottom`设置`width`的百分比撑开高度。
+
+#### vue `methods`默认参数`event`
+```
+// defined
+@click="doSomething"
+
+methods: {
+  doSomething(event) {
+
+  }
+}
+```
