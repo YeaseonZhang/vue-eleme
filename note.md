@@ -411,3 +411,9 @@ methods: {
   }
 }
 ```
+#### `v-show`
+
+`v-show`赋值一个函数,函数返回值`true` or `false`.
+
+#### `$parent` `$root`
+子组件修改父组件`prop`属性。

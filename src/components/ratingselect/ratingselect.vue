@@ -13,6 +13,8 @@
 </template>
 
 <script>
+  import eventHub from '../../eventHub';
+
   const POSITIVE = 0;
   const NEGATIVE = 1;
   const ALL = 2;
@@ -61,16 +63,15 @@
         if (!event._constructed) {
           return;
         }
-        this.selectType = type;
-        this.$emit('ratingtype.select', type);
+        this.$parent.selectType = type;
+        eventHub.$emit('ratingtype-select');
       },
       toggleContent (event) {
         if (!event._constructed) {
           return;
         }
-
-        this.onlyContent = !this.onlyContent;
-        this.$emit('content.toggle', this.onlyContent);
+        this.$parent.onlyContent = !this.onlyContent;
+        eventHub.$emit('content-toggle');
       }
     }
   };
