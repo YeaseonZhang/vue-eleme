@@ -32,11 +32,10 @@
     },
 
     created () {
-      var self = this;
       axios.get('/api/seller').then((res) => {
         if (res.data.errno === ERR_OK) { // success
-          self.seller = res.data.data;
-          console.log(self.seller);
+          this.seller = res.data.data;
+          console.log(this.seller);
         };
       });
     },

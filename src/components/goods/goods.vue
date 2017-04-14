@@ -89,15 +89,14 @@
       }
     },
     created () {
-      var self = this;
-      self.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
+      this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
 
       axios.get('/api/goods').then((res) => {
         if (res.data.errno === ERR_OK) {
-          self.goods = res.data.data;
-          self.$nextTick(() => { // DOM 挂载后更新
-            self._initScroll();
-            self._calculateHeight();
+          this.goods = res.data.data;
+          this.$nextTick(() => { // DOM 挂载后更新
+            this._initScroll();
+            this._calculateHeight();
           });
         }
       });
