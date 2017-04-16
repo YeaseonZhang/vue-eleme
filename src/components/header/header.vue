@@ -68,13 +68,14 @@
           type: Object
         }
       },
-
+      created () {
+        this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
+      },
       data () {
         return {
           detailShow: false
         };
       },
-
       methods: {
         showDetail () {
           this.detailShow = true;
@@ -83,13 +84,9 @@
           this.detailShow = false;
         }
       },
-
-      created () {
-        this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
-      },
-
       components: {
-        star, headline
+        star,
+        headline
       }
     };
 </script>
