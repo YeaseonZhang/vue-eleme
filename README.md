@@ -26,9 +26,9 @@ npm run dev
 ## 项目效果图
 
 <div style="text-align: center">
-  <img src="doc/ele-app.png"/>
-  <img src="doc/ele-app2.png"/>
-  <img src="doc/ele-app3.png"/>
+  <img src="doc/ele-app.png" width="30%"/>
+  <img src="doc/ele-app2.png" width="30%"/>
+  <img src="doc/ele-app3.png" width="30%"/>
 </div>
 
 ## 项目笔记
